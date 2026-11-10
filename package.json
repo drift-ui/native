@@ -3,17 +3,31 @@
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
+    "@rn-primitives/slot": "^1.5.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "expo": "~58.0.23",
     "expo-status-bar": "~58.0.4",
+    "lucide-react-native": "^1.71.0",
     "nativewind": "^4.2.7",
     "react": "19.3.0",
     "react-native": "0.88.1",
     "react-native-reanimated": "4.7.1",
     "react-native-safe-area-context": "~5.11.1",
-    "react-native-worklets": "0.13.0"
+    "react-native-svg": "15.16.0",
+    "react-native-worklets": "0.13.0",
+    "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
+    "@testing-library/react-native": "^14.1.0",
+    "@types/jest": "30.0.0",
     "@types/react": "~19.3.0",
+    "eslint": "^9",
+    "eslint-config-expo": "~58.0.4",
+    "jest": "~30.5.2",
+    "jest-expo": "~58.0.14",
+    "prettier": "^3.9.10",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "shadcn": "^4.23.0",
     "tailwindcss": "^3.4.17",
     "typescript": "~6.0.3"
@@ -24,7 +38,20 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "registry:build": "shadcn build"
+    "registry:build": "shadcn build",
+    "test": "jest",
+    "lint": "expo lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "moduleNameMapper": {
+      "^lucide-react-native$": "<rootDir>/node_modules/lucide-react-native/dist/cjs/lucide-react-native.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@rn-primitives/.*|nativewind|react-native-css-interop))"
+    ]
   },
   "private": true
 }

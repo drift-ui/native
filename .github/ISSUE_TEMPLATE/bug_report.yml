@@ -1,0 +1,46 @@
+name: Bug report
+description: Something in a drift-ui native component does not work as expected.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting. Please check the [open issues](https://github.com/drift-ui/native/issues) first in case this is already tracked. Bugs in the web components go to [drift-ui/ui](https://github.com/drift-ui/ui/issues).
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: The registry item name, for example `key-value-editor`.
+      placeholder: key-value-editor
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected to see.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: The smallest set of steps or code that shows the problem. An Expo Snack link helps.
+      placeholder: |
+        1. Install key-value-editor
+        2. Render `<KeyValueEditor />`
+        3. Paste "A=1" into the first key field
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform and device
+      placeholder: iOS 26 simulator, Pixel 9 with Android 16
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: Expo SDK, React Native, NativeWind and shadcn CLI versions.
+      render: text
