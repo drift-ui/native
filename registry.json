@@ -8,9 +8,7 @@
       "type": "registry:ui",
       "title": "Key Value Editor",
       "description": "Editable key and value rows for env vars and headers, with .env paste, duplicate flags and masked values. React Native version.",
-      "dependencies": [
-        "lucide-react-native"
-      ],
+      "dependencies": ["lucide-react-native"],
       "registryDependencies": [
         "https://reactnativereusables.com/r/nativewind/button.json",
         "https://reactnativereusables.com/r/nativewind/icon.json",

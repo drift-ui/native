@@ -86,7 +86,9 @@ function KeyValueEditor({
   function changeKey(index: number, text: string) {
     const row = rows[index]
     if (text.length - row.key.length > 1) {
-      const pasted = text.startsWith(row.key) ? text.slice(row.key.length) : text
+      const pasted = text.startsWith(row.key)
+        ? text.slice(row.key.length)
+        : text
       const next = pasteRows(rows, index, pasted)
       if (next) {
         pendingFocus.current = next.at(-1)?.id ?? null
@@ -98,11 +100,7 @@ function KeyValueEditor({
   }
 
   return (
-    <View
-      role="group"
-      className={cn("gap-2", className)}
-      {...props}
-    >
+    <View role="group" className={cn("gap-2", className)} {...props}>
       {rows.length > 0 && (
         <View
           aria-hidden
@@ -126,7 +124,8 @@ function KeyValueEditor({
               <Input
                 ref={(input: unknown) => {
                   // unknown: the reusables Input types its ref as the TextInput class.
-                  if (input) keyInputs.current.set(row.id, input as TextInputHandle)
+                  if (input)
+                    keyInputs.current.set(row.id, input as TextInputHandle)
                   else keyInputs.current.delete(row.id)
                 }}
                 aria-label={`${keyLabel} ${number}${isDuplicate ? ", duplicate key" : ""}`}

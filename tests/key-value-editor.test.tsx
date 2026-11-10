@@ -1,6 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react-native"
 
-import { KeyValueEditor, type KeyValueRow } from "@/registry/default/ui/key-value-editor"
+import {
+  KeyValueEditor,
+  type KeyValueRow,
+} from "@/registry/default/ui/key-value-editor"
 
 const rows: KeyValueRow[] = [
   { id: "a", key: "HOST", value: "localhost" },
@@ -9,7 +12,9 @@ const rows: KeyValueRow[] = [
 
 async function setup(initial = rows) {
   const onValueChange = jest.fn()
-  await render(<KeyValueEditor defaultValue={initial} onValueChange={onValueChange} />)
+  await render(
+    <KeyValueEditor defaultValue={initial} onValueChange={onValueChange} />
+  )
   const last = () => onValueChange.mock.calls.at(-1)?.[0] as KeyValueRow[]
   return { onValueChange, last }
 }

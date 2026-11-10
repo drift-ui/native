@@ -16,7 +16,10 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView className="flex-1 bg-background">
-        <ScrollView contentContainerClassName="gap-4 p-4" keyboardShouldPersistTaps="handled">
+        <ScrollView
+          contentContainerClassName="gap-4 p-4"
+          keyboardShouldPersistTaps="handled"
+        >
           <Text className="text-2xl font-semibold">Key Value Editor</Text>
           <KeyValueEditor defaultValue={rows} secretValues />
         </ScrollView>

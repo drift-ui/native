@@ -1,7 +1,10 @@
-const { hairlineWidth } = require("nativewind/theme");
+const { hairlineWidth } = require("nativewind/theme")
 
-const color = (name) => `hsl(var(--${name}))`;
-const pair = (name) => ({ DEFAULT: color(name), foreground: color(`${name}-foreground`) });
+const color = (name) => `hsl(var(--${name}))`
+const pair = (name) => ({
+  DEFAULT: color(name),
+  foreground: color(`${name}-foreground`),
+})
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -33,4 +36,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+}
