@@ -14,7 +14,7 @@
     "ui": "@/registry/default/ui",
     "lib": "@/registry/default/lib",
     "utils": "@/registry/default/lib/utils",
-    "hooks": "@/hooks"
+    "hooks": "@/registry/default/hooks"
   },
   "registries": {
     "@drift-ui": "https://drift-ui.dev/r/{name}.json"
