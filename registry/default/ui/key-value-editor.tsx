@@ -81,15 +81,18 @@ function KeyValueEditor({
     else keyInputs.current.get(rows[index + 1].id)?.focus()
   }
 
-  // React Native has no paste event: text that grows by more than one
-  // character at once is treated as a paste.
+  // React Native has no paste event: a newline, or text that grows by more
+  // than one character at once, is treated as a paste.
   function changeKey(index: number, text: string) {
     const row = rows[index]
-    if (text.length - row.key.length > 1) {
-      const pasted = text.startsWith(row.key)
-        ? text.slice(row.key.length)
-        : text
-      const next = pasteRows(rows, index, pasted)
+    if (text.includes("\n") || text.length - row.key.length > 1) {
+      const appended = text.startsWith(row.key)
+      // A paste over a selection replaced the old key, so drop it first.
+      const base = appended
+        ? rows
+        : rows.map((r) => (r.id === row.id ? { ...r, key: "" } : r))
+      const pasted = appended ? text.slice(row.key.length) : text
+      const next = pasteRows(base, index, pasted)
       if (next) {
         pendingFocus.current = next.at(-1)?.id ?? null
         setRows(next)
