@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "global.css",
+    "baseColor": "neutral",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@/components",
+    "ui": "@/registry/default/ui",
+    "lib": "@/registry/default/lib",
+    "utils": "@/registry/default/lib/utils",
+    "hooks": "@/hooks"
+  },
+  "registries": {
+    "@drift-ui": "https://drift-ui.dev/r/{name}.json"
+  }
+}
