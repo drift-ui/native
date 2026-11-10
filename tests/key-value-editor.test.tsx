@@ -47,6 +47,12 @@ test("pasted .env text becomes rows", async () => {
   ])
 })
 
+test("pasted .env text replaces a selected key", async () => {
+  const { last } = await setup([{ id: "a", key: "LONG_OLD_KEY", value: "" }])
+  await fireEvent.changeText(screen.getByLabelText("Key 1"), "A=1\nB=2")
+  expect(last().map((r) => r.key)).toEqual(["A", "B"])
+})
+
 test("flags duplicate keys", async () => {
   await setup([
     { id: "a", key: "A", value: "" },
